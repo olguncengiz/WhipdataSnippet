@@ -2,12 +2,15 @@
   'use strict';
 
   angular.module('FlickrSnippet', [])
-
   .controller('FlickrController', ['$scope', '$log', '$http',
 	function($scope, $log, $http) {
-		$scope.photos = [{"id": "1"}, {"id": "2"}, {"id": "3"}];
+		$scope.photos = [];
+		$scope.status = "";
 		
 		$scope.getPhotos = function() {
+			$scope.photos = [];
+			$scope.status = "Retrieving Photos From Flickr Gallery...";
+			
 			$log.log("Inside Angular Function");
 
 			// get the gallery id from the input
@@ -33,10 +36,19 @@
 				}
 
 			}).success(function(response){
-				$scope.photos = response.photos.photo;
-				$log.log(response.photos.photo);
+				if(response.photos)
+				{
+					$log.log(response);
+					$scope.photos = response.photos.photo;
+					$scope.status = "";
+				}
+				else
+				{
+					$scope.status = response.message;
+				}
 			}).error(function(error){
 				$log.log(error);
+				$scope.status = "Error Retrieving Gallery, Please Try Again...";
 			});
 		};
 	}

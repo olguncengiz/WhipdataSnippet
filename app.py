@@ -43,7 +43,8 @@ def getImageList():
         gallery_id = request.args.get('galleryId')
         application.logger.info('Gallery ID: %s' % gallery_id)
 
-        url = 'https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=7085acc211b37cf566b6abf9e5efd5a3&format=json&nojsoncallback=1&extras=description%2C+license%2C+date_upload%2C+date_taken%2C+owner_name%2C+icon_server%2C+original_format%2C+last_update%2C+geo%2C+tags%2C+machine_tags%2C+o_dims%2C+views%2C+media%2C+path_alias%2C+url_sq%2C+url_t%2C+url_s%2C+url_q%2C+url_m%2C+url_n%2C+url_z%2C+url_c%2C+url_l%2C+url_o&gallery_id='
+        #url = 'https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=7085acc211b37cf566b6abf9e5efd5a3&format=json&nojsoncallback=1&extras=description%2C+license%2C+date_upload%2C+date_taken%2C+owner_name%2C+icon_server%2C+original_format%2C+last_update%2C+geo%2C+tags%2C+machine_tags%2C+o_dims%2C+views%2C+media%2C+path_alias%2C+url_sq%2C+url_t%2C+url_s%2C+url_q%2C+url_m%2C+url_n%2C+url_z%2C+url_c%2C+url_l%2C+url_o&gallery_id='
+        url = 'https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=7085acc211b37cf566b6abf9e5efd5a3&format=json&nojsoncallback=1&extras=description%2C+owner_name%2C+tags%2C+views%2C+url_sq&gallery_id='
         url = url + gallery_id
         response = requests.get(url, verify=False)
         #resp_dict = response.json()
