@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="FlickrSnippet">
+<html>
   <head>
     <title>Flickr Snippet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,12 @@
       }
     </style>
   </head>
-  <body ng-controller="FlickrController">
+  <body ng-app="FlickrSnippet">
     <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
     <script src="../static/js/main.js"></script>
-    <div class="container">
+    <div class="container" ng-controller="FlickrController">
       <h1>Flickr Snippet</h1>
       <form role="form" ng-submit="getPhotos()">
         <div class="form-group">
@@ -25,8 +25,11 @@
       </form>
       <br>
       <div>
-      <h>Gallery Images</h>
-      <!-- Table form Flickr Images will be inserted here -->
+        <h>Gallery Photos</h>
+        <br>
+          <ul>
+              <li ng-repeat="photo in photos">{{photo.id|angular}}</li>
+          </ul>
       </div>
       <br>
       <div>
