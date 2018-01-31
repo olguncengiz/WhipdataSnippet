@@ -1,4 +1,4 @@
-- 
 - Flask uses Jinja notations, like {{variable}}, and so does AngularJS. So, I had to "pip install" Flask Triangle module and explicitly define angular variables like {{variable|angular}}. This way, the HTML is rendered for AngularJS
 - The ng-repeat was not working properly, because the ng-controller was defined multiple times. I removed duplicate definitions, and it worked
-- 
+- I couldn't make my Amazon account work properly on time, so I tried Heroku for the first time. I struggled a bit about configuration, but I managed to have the app working on Heroku server, after adding Procfile, requirements.txt and runtime.txt files.
+- Flask auto assigns port 5000 for web server, but Heroku randonly assigns a port to the application. So, I had to install "gunicorn" library to the solution.
