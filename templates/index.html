@@ -43,6 +43,10 @@
                     <td>{{photo.title|angular}}</td>
                   </tr>
                   <tr>
+                    <td>Description</td>
+                    <td>{{photo.description._content|angular}}</td>
+                  </tr>
+                  <tr>
                     <td>Owner Name</td>
                     <td>{{photo.ownername|angular}}</td>
                   </tr>
@@ -64,10 +68,6 @@
           </table>
       </div>
       <br>
-      <div>
-        <h>Image Metadata</h>
-        <!-- Individual image metadata will be inserted here -->
-      </div>
       </div>
   </body>
 </html>
