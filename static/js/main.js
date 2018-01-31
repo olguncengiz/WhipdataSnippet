@@ -9,6 +9,8 @@
 		
 		$scope.getPhotos = function() {
 			$scope.photos = [];
+			$scope.selection = -1;
+			$scope.metadata = "";
 			$scope.status = "Retrieving Photos From Flickr Gallery...";
 			
 			$log.log("Inside Angular Function");
@@ -27,10 +29,10 @@
 					$log.log(error);
 			});*/
 			$http({
-				url: '/getImageList',
+				url: '/api/images/' + galleryId + '/list',
 				dataType: 'json',
 				method: 'GET',
-				params: {"galleryId": galleryId},
+				//params: {"galleryId": galleryId},
 				headers: {
 					"Content-Type": "application/json"
 				}
@@ -51,6 +53,19 @@
 				$scope.status = "Error Retrieving Gallery, Please Try Again...";
 			});
 		};
+		
+		$scope.toggle = function(rowId) {
+			if($scope.selection == rowId){
+				$scope.selection = -1;
+				$scope.metadata = "";
+			}
+			else{
+				$scope.selection = rowId;
+				$scope.metadata = $scope.photos[rowId].description._content + $scope.photos[rowId].owner_name;
+			}
+		};
+		$scope.selection = -1;
+		$scope.metadata = "";
 	}
 	]);
 }());

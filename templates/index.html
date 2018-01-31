@@ -31,8 +31,35 @@
         <br>
           <table>
             <tr ng-repeat="photo in photos">
-              <td><img src="{{photo.url_sq|angular}}"></td>
-              <td>{{photo.description._content|angular}}</td>
+              <td><img src="{{photo.url_q|angular}}" ng-click="toggle($index)"></td>
+              <td id="{{photo.id|angular}}" ng-show="selection==$index">
+                <table>
+                  <tr>
+                    <td>ID</td>
+                    <td>{{photo.id|angular}}</td>
+                  </tr>
+                  <tr>
+                    <td>Title</td>
+                    <td>{{photo.title|angular}}</td>
+                  </tr>
+                  <tr>
+                    <td>Owner Name</td>
+                    <td>{{photo.ownername|angular}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tags</td>
+                    <td>{{photo.tags|angular}}</td>
+                  </tr>
+                  <tr>
+                    <td>Views</td>
+                    <td>{{photo.views|angular}}</td>
+                  </tr>
+                  <tr>
+                    <td>Original Size</td>
+                    <td><a href="{{photo.url_l|angular}}" target="_blank">Open In New Tab</a></td>
+                  </tr>
+                </table>
+              </td>
             </tr>
           </table>
       </div>
