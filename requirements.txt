@@ -1,6 +1,7 @@
 Flask==0.12.2
 Flask-Triangle==0.5.4
 futures==3.0.5
+gunicorn==19.7.1
 Jinja2==2.10
 jsonschema==2.6.0
 Logbook==0.12.5
