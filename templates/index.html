@@ -23,49 +23,59 @@
           <input type="text" ng-model="galleryId" name="galleryId" class="form-control" id="galleryId-box" placeholder="Enter Flickr Gallery Id..." style="max-width: 300px;" required>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-        <div class="form-group">{{status|angular}}</div>
+        <div class="form-group">{a status a}</div>
       </form>
       <br>
       <div>
         <h>Gallery Photos</h>
         <br>
+          <div style="overflow-x: scroll;">
           <table>
-            <tr ng-repeat="photo in photos">
-              <td><img src="{{photo.url_q|angular}}" ng-click="toggle($index)"></td>
-              <td id="{{photo.id|angular}}" ng-show="selection==$index">
+            <tr>
+              <td ng-repeat="photo in photos" id="{a $index a}" style="background-color:white">
                 <table>
                   <tr>
-                    <td>ID</td>
-                    <td>{{photo.id|angular}}</td>
-                  </tr>
-                  <tr>
-                    <td>Title</td>
-                    <td>{{photo.title|angular}}</td>
-                  </tr>
-                  <tr>
-                    <td>Description</td>
-                    <td>{{photo.description._content|angular}}</td>
-                  </tr>
-                  <tr>
-                    <td>Owner Name</td>
-                    <td>{{photo.ownername|angular}}</td>
-                  </tr>
-                  <tr>
-                    <td>Tags</td>
-                    <td>{{photo.tags|angular}}</td>
-                  </tr>
-                  <tr>
-                    <td>Views</td>
-                    <td>{{photo.views|angular}}</td>
-                  </tr>
-                  <tr>
-                    <td>Original Size</td>
-                    <td><a href="{{photo.url_l|angular}}" target="_blank">Open In New Tab</a></td>
+                    <td><img src="{a photo.url_q a}" ng-click="toggle($index)"></td>
                   </tr>
                 </table>
               </td>
             </tr>
           </table>
+        </div>
+      </div>
+      <div ng-show="selection!=-1" style="width:auto;">
+        <h>Photo Metadata</h>
+        <br>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{a photoId a}</td>
+          </tr>
+          <tr>
+            <td>Title</td>
+            <td>{a photoTitle a}</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>{a photoDescription a}</td>
+          </tr>
+          <tr>
+            <td>Owner Name</td>
+            <td>{a photoOwnername a}</td>
+          </tr>
+          <tr>
+            <td>Tags</td>
+            <td>{a photoTags a}</td>
+          </tr>
+          <tr>
+            <td>Views</td>
+            <td>{a photoViews a}</td>
+          </tr>
+          <tr>
+            <td>Original Size</td>
+            <td><a href="{a photoURL a}" target="_blank">Open In New Tab</a></td>
+          </tr>
+        </table>
       </div>
       <br>
       </div>
