@@ -20,7 +20,7 @@ def setup_logging():
 def favicon(): 
     return send_from_directory(os.path.join(application.root_path, 'static'), 'favicon.ico')
 
-@application.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST']) 
 def showIndex():
     application.logger.info('Inside showIndex')
     errors = []
