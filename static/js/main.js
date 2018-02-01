@@ -2,13 +2,10 @@
   'use strict';
 
   angular.module('FlickrSnippet', [])
-  .config(['$interpolateProvider', function($interpolateProvider) {
-	  $interpolateProvider.startSymbol('{a');
-	  $interpolateProvider.endSymbol('a}'); 
-	}])
   .controller('FlickrController', ['$scope', '$log', '$http',
 	function($scope, $log, $http) {
 		$scope.photos = [];
+		$scope.selection = "";
 		$scope.status = "";
 		
 		// Metadata Variables
@@ -20,7 +17,9 @@
 		$scope.photoViews = "";
 		$scope.photoURL = "";
 
-		$scope.setMetadata = function(rowId) {
+		$scope.setMetadata = function(photoId) {
+			var rowId = $scope.getIndex(photoId);
+
 			$scope.photoId = $scope.photos[rowId].id;
 			$scope.photoTitle = $scope.photos[rowId].title;
 			$scope.photoDescription = $scope.photos[rowId].description._content;
@@ -40,10 +39,15 @@
 			$scope.photoURL = "";
 		};
 
+		$scope.getIndex = function(id) {
+			var index = $scope.photos.findIndex(x=>x.id === id);
+			return index;
+		}
+
 		
 		$scope.getPhotos = function() {
 			$scope.photos = [];
-			$scope.selection = -1;
+			$scope.selection = "";
 			$scope.status = "Retrieving Photos From Flickr Gallery...";
 			
 			$log.log("Inside Angular Function");
@@ -87,24 +91,25 @@
 			});
 		};
 		
-		$scope.toggle = function(rowId) {
-			if($scope.selection == rowId){
-				$scope.selection = -1;
-				var elem = document.getElementById(rowId);
+		$scope.toggle = function(photoId) {
+			if($scope.selection == photoId){
+				$scope.selection = "";
+				var elem = document.getElementById(photoId);
 		 		elem.style.backgroundColor = 'white';
+		 		$scope.resetMetadata();
 			}
 			else{
-				if($scope.selection != -1){
+				if($scope.selection != ""){
 					var elem = document.getElementById($scope.selection);
 		 			elem.style.backgroundColor = 'white';
 				}
-				$scope.selection = rowId;
-				var elem = document.getElementById(rowId);
+				$scope.selection = photoId;
+				var elem = document.getElementById(photoId);
 		 		elem.style.backgroundColor = 'red';
-		 		$scope.setMetadata(rowId);
+		 		$scope.setMetadata(photoId);
 			}
 		};
-		$scope.selection = -1;
+		$scope.selection = "";
 	}
 	]);
 }());
