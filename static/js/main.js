@@ -4,7 +4,7 @@
   angular.module('FlickrSnippet', [])
   .config(['$interpolateProvider', function($interpolateProvider) {
 	  $interpolateProvider.startSymbol('{a');
-	  $interpolateProvider.endSymbol('a}');
+	  $interpolateProvider.endSymbol('a}'); 
 	}])
   .controller('FlickrController', ['$scope', '$log', '$http',
 	function($scope, $log, $http) {
