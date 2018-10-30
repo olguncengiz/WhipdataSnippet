@@ -21,7 +21,7 @@ Logbook==0.12.5
 lxml==3.6.0
 MarkupSafe==1.0
 py==1.4.31
-requests==2.18.4
+requests==2.20.0
 six==1.10.0
 trollius==1.0.4
 urllib3==1.22
