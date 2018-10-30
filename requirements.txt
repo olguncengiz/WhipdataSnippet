@@ -7,7 +7,7 @@ chardet==3.0.4
 click==6.6
 constantly==15.1.0
 elasticsearch==2.3.0
-Flask==0.12.2
+Flask==0.12.3
 Flask-Triangle==0.5.4
 functools32==3.2.3.post2
 futures==3.0.5
