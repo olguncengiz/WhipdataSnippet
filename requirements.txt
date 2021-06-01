@@ -24,7 +24,7 @@ py==1.4.31
 requests==2.20.0
 six==1.10.0
 trollius==1.0.4
-urllib3==1.22
+urllib3==1.26.5
 w3lib==1.17.0
 Werkzeug==0.14.1
 zope.interface==4.3.3
